@@ -1,39 +1,16 @@
 import React, { Component, PropTypes } from 'react'
-
-const getChildByType = (type, children, fallback = null) => {
-  const node = children.filter((child) => child.type.name === type)[0]
-  return node ? node : fallback
-}
+import Context from './Context'
 
 export default class Repeater extends Component {
   render() {
-    const props                   = this.props
-    const headerTemplate          = getChildByType('HeaderTemplate', props.children)
-    const footerTemplate          = getChildByType('FooterTemplate', props.children)
-    const itemTemplate            = getChildByType('ItemTemplate', props.children)
-    const alternatingItemTemplate = getChildByType('AlternatingItemTemplate', props.children, itemTemplate)
-    const separatorTemplate       = getChildByType('SeparatorTemplate', props.children)
+    const props = this.props
 
-    const items = props.visible ? props.dataSource.map((dataItem, key) => {
-      let o = []
-
-      if (key === 0) {
-        o.push(headerTemplate)
-      }
-
-      if (key % 2 === 0) {
-        o.push(itemTemplate)
-      } else {
-        o.push(alternatingItemTemplate)
-      }
-
-      if (key === props.dataSource.length -1) {
-        o.push(footerTemplate)
-      } else {
-        o.push(separatorTemplate)
-      }
-
-      return o
+    const items = props.visible ? props.dataSource.map((dataItem, index) => {
+      return (
+        <Context key={index} index={index} dataItem={dataItem} dataSource={props.dataSource}>
+          {props.children}
+        </Context>
+      )
     }) : null
 
     return (<div>{items}</div>)

@@ -5,15 +5,9 @@ const getChildByType = (type, children, fallback = null) => {
   return node ? node : fallback
 }
 
-const defaultProps = {
-  visible: true,
-  children: {}
-}
-
 export default class Repeater extends Component {
   render() {
-    let props = Object.assign({}, defaultProps, this.props)
-
+    const props                   = this.props
     const headerTemplate          = getChildByType('HeaderTemplate', props.children)
     const footerTemplate          = getChildByType('FooterTemplate', props.children)
     const itemTemplate            = getChildByType('ItemTemplate', props.children)
@@ -46,6 +40,6 @@ export default class Repeater extends Component {
   }
 }
 
-Repeater.childContextTypes = {
-
+Repeater.defaultProps = {
+  visible: true
 }

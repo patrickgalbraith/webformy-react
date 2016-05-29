@@ -1,16 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 
 import Label from './components/Label'
-import Repeater, {HeaderTemplate, FooterTemplate, ItemTemplate} from './components/Repeater'
+import Repeater from './components/Repeater'
+import ItemTemplate from './components/ItemTemplate'
+import HeaderTemplate from './components/HeaderTemplate'
+import FooterTemplate from './components/FooterTemplate'
 import TextBox from './components/TextBox'
 
 export default class Global extends Component {
   render() {
     return (
       <div>
-        <Label>Label</Label>
-        <TextBox value="Test" />
-        <TextBox value="Test" multiLine={true} />
+        <p><Label>Label</Label></p>
+        <p><TextBox defaultValue="Test" /></p>
+        <p><TextBox defaultValue="Test2" multiLine={true} /></p>
         <Repeater
           dataSource={[
             { title: "Title 1"},

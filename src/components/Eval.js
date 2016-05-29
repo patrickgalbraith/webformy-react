@@ -9,6 +9,14 @@ const Eval = (props, context) => {
     }
   }
 
+  if (typeof(props.value) === 'string') {
+    return (<span>{props.value}</span>)
+  }
+
+  if (props.children) {
+    return (<span>{props.children}</span>)
+  }
+
   return null
 }
 

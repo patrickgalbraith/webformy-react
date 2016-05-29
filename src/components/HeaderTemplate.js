@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 const HeaderTemplate = (props, context) => {
   if (context.container.index === 0) {
-    return <div>{props.children}</div>
+    return props.children
   }
 
   return null

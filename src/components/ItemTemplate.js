@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 const ItemTemplate = (props, context) => {
-  if (context.index % 2 !== 0) {
+  if (!context.container.alternating || context.container.index % 2 === 0) {
     return <div>{props.children}</div>
   }
 
@@ -9,9 +9,7 @@ const ItemTemplate = (props, context) => {
 }
 
 ItemTemplate.contextTypes = {
-  index:      React.PropTypes.number,
-  dataItem:   React.PropTypes.object,
-  dataSource: React.PropTypes.array,
+  container: React.PropTypes.object
 }
 
 export default ItemTemplate

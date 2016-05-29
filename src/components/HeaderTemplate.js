@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 const HeaderTemplate = (props, context) => {
-  if (context.index === 0) {
+  if (context.container.index === 0) {
     return <div>{props.children}</div>
   }
 
@@ -9,9 +9,7 @@ const HeaderTemplate = (props, context) => {
 }
 
 HeaderTemplate.contextTypes = {
-  index:      React.PropTypes.number,
-  dataItem:   React.PropTypes.object,
-  dataSource: React.PropTypes.array,
+  container: React.PropTypes.object
 }
 
 export default HeaderTemplate

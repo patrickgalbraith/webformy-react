@@ -3,15 +3,11 @@ import React, { Component, PropTypes } from 'react'
 // Converts props to context
 const Context = React.createClass({
   childContextTypes: {
-    index:      React.PropTypes.number,
-    dataItem:   React.PropTypes.object,
-    dataSource: React.PropTypes.array,
+    container: React.PropTypes.object
   },
 
   getChildContext: function() {
-    let ctx = Object.assign({}, this.props)
-    delete ctx['children']
-    return ctx
+    return {container: this.props.container}
   },
 
   render: function() {

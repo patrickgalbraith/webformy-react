@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 const FooterTemplate = (props, context) => {
-  if (context.index === context.dataSource.length - 1) {
+  if (context.container.index === context.container.dataSource.length - 1) {
     return <div>{props.children}</div>
   }
 
@@ -9,9 +9,7 @@ const FooterTemplate = (props, context) => {
 }
 
 FooterTemplate.contextTypes = {
-  index:      React.PropTypes.number,
-  dataItem:   React.PropTypes.object,
-  dataSource: React.PropTypes.array,
+  container: React.PropTypes.object
 }
 
 export default FooterTemplate

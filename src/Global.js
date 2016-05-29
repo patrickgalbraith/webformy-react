@@ -6,14 +6,17 @@ import ItemTemplate from './components/ItemTemplate'
 import HeaderTemplate from './components/HeaderTemplate'
 import FooterTemplate from './components/FooterTemplate'
 import TextBox from './components/TextBox'
+import Eval from './components/Eval'
 
 export default class Global extends Component {
   render() {
     return (
       <div>
         <p><Label>Label</Label></p>
+
         <p><TextBox defaultValue="Test" /></p>
-        <p><TextBox defaultValue="Test2" multiLine={true} /></p>
+        <p><TextBox defaultValue={(ctx) => "Test2"} multiLine={true} /></p>
+
         <Repeater
           dataSource={[
             { title: "Title 1"},
@@ -25,12 +28,15 @@ export default class Global extends Component {
             <p>Header</p>
           </HeaderTemplate>
           <ItemTemplate>
-            <p>Test Item</p>
+            <p><Eval value="title" /></p>
           </ItemTemplate>
           <FooterTemplate>
             <p>Footer</p>
           </FooterTemplate>
         </Repeater>
+
+
+
       </div>
     )
   }

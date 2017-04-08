@@ -7,13 +7,11 @@ const Context = React.createClass({
   },
 
   getChildContext: function() {
-    return {container: this.props.container}
+    return { container: this.props.container }
   },
 
   render: function() {
-    return (
-      <div>{this.props.children}</div>
-    )
+    return this.props.children
   }
 })
 

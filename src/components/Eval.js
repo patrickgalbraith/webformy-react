@@ -3,18 +3,18 @@ import React, { Component, PropTypes } from 'react'
 const Eval = (props, context) => {
   if (props.value && context.container.dataItem) {
     if (typeof props.value === 'function') {
-      return (<span>{props.value.call(null, context)}</span>)
+      return props.value.call(null, context)
     } else {
-      return (<span>{context.container.dataItem[props.value]}</span>)
+      return context.container.dataItem[props.value]
     }
   }
 
   if (typeof(props.value) === 'string') {
-    return (<span>{props.value}</span>)
+    return props.value
   }
 
   if (props.children) {
-    return (<span>{props.children}</span>)
+    return props.children
   }
 
   return null

@@ -1,7 +1,12 @@
 import React, { Component, PropTypes } from 'react'
+import { filterKeys } from '../helpers/object'
 
-const LinkButton = (props) =>
-  <a {...props}>{props.text}</a>
+const LinkButton = (props) => {
+  const childProps = filterKeys(['text'], props)
+  return (
+    <a {...childProps}>{props.text}</a>
+  )
+}
 
 LinkButton.defaultProps = {
   href: '#'

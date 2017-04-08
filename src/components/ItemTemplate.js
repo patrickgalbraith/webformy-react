@@ -5,7 +5,7 @@ const ItemTemplate = (props, context) => {
     return props.children
   }
 
-  return null;
+  return null
 }
 
 ItemTemplate.contextTypes = {

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 const FooterTemplate = (props, context) => {
   if (context.container.index === context.container.dataSource.length - 1) {
-    return <div>{props.children}</div>
+    return props.children
   }
 
   return null

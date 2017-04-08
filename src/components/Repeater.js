@@ -26,7 +26,7 @@ export default class Repeater extends Component {
       )
     }) : null
 
-    return (<div>{items}</div>)
+    return items
   }
 }
 

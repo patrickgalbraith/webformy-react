@@ -13,29 +13,34 @@ const DataList = (props) => {
     <table>
       <Repeater {...props}>
         <HeaderTemplate>
-            <Eval value={ (ctx) => {
-              return Object.keys(ctx.container.dataItem).map((key) => <th>{ key }</th>)
-            }} />
+          <thead>
+            <tr>
+              <Eval value={ (ctx) => {
+                return Object.keys(ctx.container.dataItem).map((key, idx) => <th key={idx}>{ key }</th>)
+              }} />
+            </tr>
+          </thead>
         </HeaderTemplate>
         <ItemTemplate>
-          <Eval value={ (ctx) => {
-            return (
-              <tr>
-                { Object.keys(ctx.container.dataItem).map((key) => <td>{ ctx.container.dataItem[key] }</td>) }
-              </tr>
-            )}} />
+          <tbody>
+            <Eval value={ (ctx) => {
+              return (
+                <tr>
+                  { Object.keys(ctx.container.dataItem).map((key, idx) => <td key={idx}>{ ctx.container.dataItem[key] }</td>) }
+                </tr>
+              )}} />
+          </tbody>
         </ItemTemplate>
         <SeparatorTemplate>
-          <Eval value={ (ctx) => {
-            return (
-              <tr>
-                { Object.keys(ctx.container.dataItem).map((key) => <td>{ "---" }</td>) }
-              </tr>
-            )}} />
+          <tbody>
+            <Eval value={ (ctx) => {
+              return (
+                <tr>
+                  { Object.keys(ctx.container.dataItem).map((key, idx) => <td key={idx}>{ "---" }</td>) }
+                </tr>
+              )}} />
+          </tbody>
         </SeparatorTemplate>
-        <FooterTemplate>
-
-        </FooterTemplate>
       </Repeater>
     </table>
   )
